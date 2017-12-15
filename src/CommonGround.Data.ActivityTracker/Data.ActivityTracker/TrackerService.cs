@@ -33,7 +33,7 @@ namespace CommonGround.Data.ActivityTracker
 
             try
             {
-                if (!Monitor.TryEnter(_lock)) return;
+                if (Monitor.TryEnter(_lock) == false) return;
 
                 lockWasTaken = true;
                 TakeSample();
